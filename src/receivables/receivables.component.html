@@ -1,0 +1,1 @@
+<h1>Receivables</h1>

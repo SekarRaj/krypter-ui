@@ -5,21 +5,31 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { EmployeeListComponent } from '../employee/employee-list.component';
+import { EmployeeListComponent } from '../employee/index';
+import { CustomerListComponent } from '../customer/index';
+import { WelcomeComponent } from '../welcome/index';
+import { PayablesComponent } from '../payables/index';
+import { ReceivablesComponent } from '../receivables/index';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    WelcomeComponent,
+    CustomerListComponent,
+    PayablesComponent,
+    ReceivablesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: EmployeeListComponent },
+      { path: 'welcome', component: WelcomeComponent },
       { path: 'employee', component: EmployeeListComponent },
-      { path: 'customers', component: EmployeeListComponent }
+      { path: 'customer', component: CustomerListComponent },
+      { path: 'ap', component: PayablesComponent },
+      { path: 'ar', component: ReceivablesComponent }      
     ])
   ],
   providers: [],
