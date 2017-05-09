@@ -3,7 +3,15 @@ import { EmployeeService } from './employee.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'employee-list.component.html'
+    templateUrl: 'employee-list.component.html',
+    styles: [`
+        .ky-card-listing{
+            margin-top: 10px;;
+        }
+        .ky-font-white{
+            color: #fff;
+        }
+    `]
 })
 export class EmployeeListComponent implements OnInit {
 

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+.ky-teal-text{
+    color: teal;
+}
+
+.ky-white-text{
+    color: white;
+}
+
+.ky-red-text{
+    color: red;
+}
