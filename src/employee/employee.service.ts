@@ -11,7 +11,9 @@ export class EmployeeService {
     private _url = '../assets/employees.json';
 
     getEmployees(): Observable<IEmployee[]> {
-        return this._http.get(this._url).map((response: Response) => <IEmployee[]>response.json()).catch(this.handleError);
+        return this._http.get(this._url)
+                    .map((response: Response) => <IEmployee[]>response.json().employees)
+                    .catch(this.handleError);
     }
 
     getEmployee(id: string): Observable<IEmployee> {

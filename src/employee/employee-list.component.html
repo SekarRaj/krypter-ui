@@ -2,7 +2,6 @@
   <!--<div class="card-header card-success">
       <span class="ky-font-white">Employees</span>
     </div>-->
-  <div class="card-block">
     <table class="table">
       <thead class="thead-default">
         <tr>
@@ -12,17 +11,16 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>A2111</td>
-          <td>Monseiur</td>
-          <td>12/12/2012</td>
+      <tbody *ngIf="employees">
+        <tr  *ngFor="let emp of employees">
+          <td>{{emp.id}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.dob}}</td>
           <td>
-            <a class="btn"><i class="fa fa-pencil ky-teal-text"></i> </a>
-            <a class="btn"><i class="fa fa-close ky-red-text"></i> </a>
+            <a><i class="fa fa-pencil ky-teal-text"></i> </a>
+            <a><i class="fa fa-close ky-red-text"></i> </a>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
 </div>
