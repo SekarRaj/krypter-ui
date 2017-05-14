@@ -1,0 +1,61 @@
+<div class="card" style="width:25rem; margin: auto;">
+    <img class="card-img-top" src="../assets/images/person-1.png" style="width:50%; margin:auto;"/>
+    <div class="card-block">
+        <form class="form-vertical" novalidate (ngSubmit)="save()" [formGroup]="employeeForm">
+            <fieldset>
+                <div class="form-group">
+                    <label  for="nameId"
+                            [ngClass]="{
+                                'has-error':(employeeForm.get('name').touched || employeeForm.get('name').dirty) && !employeeForm.get('name').valid
+                            }"
+                            class="control-label">Name</label>
+                <div>
+                    <input  type="text" 
+                            formControlName="name"
+                            id="nameId" 
+                            class="form-control" 
+                            required
+                            minlength="3"
+                            placeholder="Employee Name" />
+                    <span class="help-block" *ngIf="(employeeForm.get('name').touched || employeeForm.get('name').dirty) && !employeeForm.get('name').valid">
+                        <span *ngIf="employeeForm.get('name').errors.required">
+                            Please enter your name
+                        </span>
+                        <span *ngIf="employeeForm.get('name').errors.minlength">
+                            Name must be longer than 3 characters
+                        </span>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input  type="text" 
+                            class="form-control" 
+                            id="typeId" 
+                            required
+                            formControlName="type"
+                            placeholder="Employee Type" />
+                </div>
+
+                <div class="form-group">
+                    <input  type="text" 
+                            class="form-control" 
+                            id="ssnId" 
+                            required
+                            formControlName="ssn"
+                            placeholder="SSN Number" />
+                </div>
+
+            <div class="form-group">
+                <button type="submit"
+                        [disabled]="!employeeForm.valid"
+                        class="btn btn-primary btn-block ky-white-text">
+                        Add Employee
+                </button>
+                <button class="btn btn-default btn-block">Cancel</button>
+                <button class="btn btn-default btn-block" (click)="populateData()">Populate Data</button>
+            </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

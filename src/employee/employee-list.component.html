@@ -2,25 +2,42 @@
   <!--<div class="card-header card-success">
       <span class="ky-font-white">Employees</span>
     </div>-->
-    <table class="table">
-      <thead class="thead-default">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Birth Date</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="employees">
-        <tr  *ngFor="let emp of employees">
-          <td>{{emp.id}}</td>
-          <td>{{emp.name}}</td>
-          <td>{{emp.dob}}</td>
-          <td>
-            <a><i class="fa fa-pencil ky-teal-text"></i> </a>
-            <a><i class="fa fa-close ky-red-text"></i> </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-sm-1">Filter</div>
+    <div class="col-sm-5"><input type="text" class="form-control" /></div>
+    <div class="col-sm-offset-1 col-sm-3">
+      <a class="btn btn-primary" [routerLink]="['/employee/add']">
+        <span class="ky-white-text">
+        Add Employee
+      </span>
+      </a>
+    </div>
+  </div>
+  <hr />
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>SSN</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="employees">
+      <tr *ngFor="let emp of employees">
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.type}}</td>
+        <td>{{emp.ssn}}</td>
+        <td>
+          <a [routerLink]="['/employee/edit']" >
+            <i class="fa fa-pencil ky-teal-text"></i>
+          </a>
+          &nbsp; &nbsp;
+          <a><i class="fa fa-close ky-red-text"></i> </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

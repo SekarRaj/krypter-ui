@@ -8,11 +8,14 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class EmployeeService {
     constructor(private _http: Http) { }
-    private _url = '../assets/employees.json';
+    // private _url = '../assets/employees.json';
+    private _url = 'http://example.com:8080/krypter/employee';
 
     getEmployees(): Observable<IEmployee[]> {
         return this._http.get(this._url)
-                    .map((response: Response) => <IEmployee[]>response.json().employees)
+                    .map((response: Response) => {
+                        return <IEmployee[]>response.json();
+                    })
                     .catch(this.handleError);
     }
 
