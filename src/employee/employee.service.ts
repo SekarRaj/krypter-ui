@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IEmployee } from './employee';
 import 'rxjs/add/operator/map';
@@ -7,9 +7,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class EmployeeService {
+    private _url = 'http://localhost:8080/krypter/employee';
+
     constructor(private _http: Http) { }
-    // private _url = '../assets/employees.json';
-    private _url = 'http://example.com:8080/krypter/employee';
 
     getEmployees(): Observable<IEmployee[]> {
         return this._http.get(this._url)
@@ -23,7 +23,14 @@ export class EmployeeService {
         return this.getEmployees().map((employees: IEmployee[]) => employees.find(p => p.id === id));
     }
 
+    addEmployee(event): Observable<any> {
+        const headers = new Headers({'Content-Type' : 'application/json'});
+        const options = new RequestOptions({headers: headers});
+
+        return this._http.post('http://localhost:8080/krypter/employee/add', event, options);
+    }
+
     handleError(error: Response) {
-        return Observable.throw(error.json().error || 'Server Erorr')
+        return Observable.throw(error.json().error || 'Server Erorr');
     }
 }

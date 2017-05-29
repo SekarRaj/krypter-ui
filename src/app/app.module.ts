@@ -9,8 +9,7 @@ import {
   EmployeeListComponent,
   EmployeeAddComponent,
   EmployeeEditComponent
-}
-  from '../employee/index';
+} from '../employee/index';
 import { CustomerListComponent } from '../customer/index';
 import { WelcomeComponent } from '../welcome/index';
 import { PayablesComponent } from '../payables/index';

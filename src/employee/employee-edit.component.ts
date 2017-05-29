@@ -8,13 +8,13 @@ import { IEmployee } from './employee';
     templateUrl: 'employee-edit.component.html'
 })
 export class EmployeeEditComponent implements OnInit {
-    @Input() empId: string = "E123456";
-
-    constructor(private _empSrv: EmployeeService) { }
+    @Input() empId = 'E123456';
 
     empEditForm: FormGroup;
 
-    ngOnInit() {
+    constructor(private _empSrv: EmployeeService) {}
+
+    ngOnInit(){
         this.empEditForm = new FormGroup({
             name: new FormControl(),
             type: new FormControl(),
@@ -27,8 +27,9 @@ export class EmployeeEditComponent implements OnInit {
                 type: emp.type,
                 ssn: emp.ssn
             });
-        }, err => { console.log(err) });
-    }
+        }
+        , err => console.log(err));
+    };
 
     save(){
         console.log(this.empEditForm.value);
